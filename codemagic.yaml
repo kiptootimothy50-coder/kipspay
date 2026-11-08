@@ -16,3 +16,8 @@ workflows:
           flutter build appbundle --release
     artifacts:
       - build/**/outputs/**/*.aab
+      - build/**/*.aab
+    publishing:
+      email:
+        recipients:
+          - kiptootimothy50@gmail.com
