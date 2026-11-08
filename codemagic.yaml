@@ -7,10 +7,14 @@ workflows:
       xcode: latest
       cocoapods: default
     scripts:
+      - name: Create Android project if missing
+        script: |
+          if [ ! -d "android" ]; then
+            flutter create . --platforms=android
+          fi
       - name: Get packages
         script: flutter pub get
       - name: Build AAB
         script: flutter build appbundle --release
     artifacts:
       - build/**/outputs/**/*.aab
-      - build/**/outputs/**/*.apk
